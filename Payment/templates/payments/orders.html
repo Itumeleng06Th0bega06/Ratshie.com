@@ -1,0 +1,81 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'theme/images/banner/banner1.jpg' %})">
+    <div class="banner-text">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="banner-heading">
+                  <h1 class="banner-title">Order-{{order.id}}</br></br> ${{order.amount_paid}}</h1>
+                  
+                </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Banner text end -->
+  </div><!-- Banner area end --> 
+
+</br></br>
+<div class="container">
+  <div class="row d-flex content-center">
+    <div class="col-lg-12">
+          <center>
+            <div class="container py-5">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="card shadow-sm mb-4">
+                      <div class="card-header bg-white">
+                        <h2 class="h5 mb-0">{{order.email}}</h2>
+                      </div>
+                      
+                      
+                      {% if order.shipped %}
+                        Date Shipped: {{order.date_shipped}}</br>
+                      {% else %}
+                        Date Ordered: {{order.date_ordered}}</br>
+                      {% endif %}
+                    
+                      {{ order.full_name }}</br>
+                      <pre>{{ order.shipping_address }}</pre></br>
+
+                      {% for item in items %}
+                        {{ item.product }} - {{ item.quantity }} - ${{ item.price }}</br>
+                      {%endfor%}
+                    </br>
+
+                    {% if not order.shipped %}
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="shipping_status" value="true">
+                            <button type="Submit" class="btn btn-success">Mark As Shipped</button>
+                          </form>
+                        </br>
+                        <a href="{% url 'shipped_dash' %}"class="btn btn-outline-secondary btn-sm">Go To Shipped</a>
+                        {% else %}
+                        <form method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="shipping_status" value="false">
+                          <button type="Submit" class="btn btn-success">Mark As Not Shipped</button>
+                        </form>
+                      </br>
+                      <a href="{% url 'not_shipped' %}"class="btn btn-outline-secondary btn-sm">Go To Unshipped</a>
+                    {% endif %}
+                    
+                    </div>
+                  </div>
+                  
+                  
+                  
+                  
+                </div>
+              </div>
+          </center>
+        </div>
+  </div>
+</div>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+
+{% endblock %}

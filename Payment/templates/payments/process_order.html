@@ -1,0 +1,55 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'theme/images/banner/banner1.jpg' %})">
+    <div class="banner-text">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="banner-heading">
+                  <h1 class="banner-title">Processing Order</h1>
+                  
+                </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Banner text end -->
+</div><!-- Banner area end --> 
+
+  <div class="checkout-container">
+    <div class="row">
+      <!-- Left Column - Order Summary -->
+      
+      
+      <!-- Right Column - Checkout Form -->
+      <div class="col-md-6 checkout-form">
+        
+    
+        <strong>Shipping Information</strong>
+        Name: {{ shipping_info.shipping_full_name }}</br>
+        Email: {{ shipping_info.shipping_email }}</br>
+        Address1: {{ shipping_info.shipping_address1 }}</br>
+        Address2: {{ shipping_info.shipping_address }}</br>
+        City: {{ shipping_info.shipping_city }}</br>
+        State: {{ shipping_info.shipping_state }}</br>
+        ZipCode: {{ shipping_info.shipping_zipcode }}</br>
+        Country: {{ shipping_info.shipping_country }}</br>
+                          
+        <a href = "{% url 'checkout' %}" class = "btn btn-block mt-1 py-1 btn-primary">Update Shipping</a>
+        
+        
+      </div>
+      <div class="col-md-6 checkout-form">
+        <strong>Billing Information</strong>
+        
+        <form method="POST" action="{% urls 'process_order' %}">
+          {% csrf_token %}
+          {{ billing_form.as_p }}
+          <button type="submit" class="btn btn-primary btn-block mt-4 py-3" class="submit-btn">Pay R{{ grand_total }}</button>
+        </form>
+
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}

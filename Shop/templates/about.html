@@ -1,0 +1,108 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'theme/images/banner/m1.jpg' %})">
+    <div class="banner-text">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="banner-heading">
+                  <h1 class="banner-title">About Us</h1>
+                </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Banner text end -->
+  </div><!-- Banner area end --> 
+
+  <section id="main-container" class="main-container">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-6 ">
+            <h3 class="column-title">Who We Are</h3>
+            <p>Ratshie (Pty) Ltd is a registered private company based in Seoding Village, Kuruman, 
+              Northern Cape. We operate a dual model automotive service: a car repairs workshop and a 
+              mobile car spares delivery business. Our aim is to bridge the gap in rural vehicle care and 
+              parts supply with accessible, affordable, and high-quality services.</p>
+            
+            
+          </div><!-- Col end -->
+  
+          <div class="col-lg-6 mt-5 mt-lg-0">
+            
+            <div id="page-slider" class="page-slider small-bg">
+  
+                <div class="item" style="background-image:url({% static "theme/images/slider-pages/m2.jpg" %})">
+                  <div class="container">
+                      <div class="box-slider-content">
+                        <div class="box-slider-text">
+                            <h2 class="box-slide-title">Leadership</h2>
+                        </div>    
+                      </div>
+                  </div>
+                </div><!-- Item 1 end -->
+  
+                <div class="item" style="background-image:url({% static "theme/images/slider-pages/m4.jpg" %})">
+                  <div class="container">
+                      <div class="box-slider-content">
+                        <div class="box-slider-text">
+                            <h2 class="box-slide-title">Relationships</h2>
+                        </div>    
+                      </div>
+                  </div>
+                </div><!-- Item 1 end -->
+  
+                <div class="item" style="background-image:url({% static "theme/images/slider-pages/m3.jpg" %})">
+                  <div class="container">
+                      <div class="box-slider-content">
+                        <div class="box-slider-text">
+                            <h2 class="box-slide-title">Performance</h2>
+                        </div>    
+                      </div>
+                  </div>
+                </div><!-- Item 1 end -->
+            </div><!-- Page slider end-->          
+          
+  
+          </div><!-- Col end -->
+
+
+          <div class="col-lg-6">
+            <h3 class="column-title">Mission</h3>
+            <p>To become the most trusted provider of vehicle repairs and mobile parts delivery in the 
+              Northern Cape.</p><br/>
+            <h3 class="column-title">Services</h3>
+
+            <p>- Mechanical Repairs & Diagnostics<br/> 
+              - Car Parts, Lubricants & Accessories <br/>
+              - Mobile Spares Delivery within 50km <br/>
+              - Emergency Support & Roadside Delivery
+            </p>
+            
+            
+          </div><!-- Col end -->
+          <div class="col-lg-6">
+            <h3 class="column-title">Market Opportunity</h3>
+            <p>Rural communities often lack access to reliable car parts and mechanics. Ratshie addresses 
+              this challenge with a mobile-first approach to sales and service.</p>
+            <h3 class="column-title">Growth</h3>
+
+            <p>- Expand mobile coverage radius <br/>
+              - Launch online ordering system <br/>
+              - Add staff and service vehicles <br/>
+              - Partner with fleet operators and municipalities 
+            </p>
+            
+            
+          </div><!-- Col end -->
+      </div><!-- Content row end -->
+  
+    </div><!-- Container end -->
+  </section><!-- Main container end -->
+
+
+
+
+
+{% endblock %}
