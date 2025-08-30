@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-bndd++qif&_kvx(b6=+y0$d+**j&hofu)m@7o6!z6^$+_w!_f2
 DEBUG = True
 
 ALLOWED_HOSTS = ['ratshie-com.railway.internal', 'https://ratshie-com.railway.internal']
-CSRF_TRUSTED_ORIGINS = ['ratshie-com.railway.internal', 'https://ratshie-com.railway.internal']
+CSRF_TRUSTED_ORIGINS = ['https://ratshie-com.railway.internal']
 
 
 # Application definition
