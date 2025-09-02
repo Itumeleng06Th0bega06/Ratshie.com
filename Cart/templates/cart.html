@@ -118,36 +118,37 @@
     </div>
     
     
-    <div class="col-lg-4">
-      <div class="card shadow-sm sticky-top" style="top: 20px">
-        <div class="card-header bg-white">
-          <h3 class="h6 mb-0">Order Summary</h3>
-        </div>
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
+    {% if cart_products %}
+      <div class="col-lg-4">
+        <div class="card shadow-sm sticky-top" style="top: 20px">
+          <div class="card-header bg-white">
+            <h3 class="h6 mb-0">Order Summary</h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
 
-            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-              <span>Shipping</span>
-              <span>Included</span>
-            </li>
-           
-            <li class="list-group-item d-flex justify-content-between align-items-center px-0 font-weight-bold">
-              <span>Total</span>
-              <span>R{{ totals|floatformat:2 }}</span>
-            </li>
-          </ul>
-          
-          <a href="{% url 'checkout' %}" class="btn btn-primary btn-block mt-4 py-3">
-            Proceed to Checkout
-          </a>
-          <div class="text-center mt-3">
-            <small class="text-muted">
-              <i class="fas fa-lock mr-1"></i> Secure checkout
-            </small>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                <!--span>Shipping</span-->
+                <!--span>Included</span-->
+                <span>Total</span>
+                <span>R{{ totals|floatformat:2 }}</span>
+              </li>
+            
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 font-weight-bold">
+              </li>
+            </ul>
+            <a href="{% url 'checkout' %}" class="btn btn-primary btn-block mt-4 py-3">
+              Proceed to Checkout
+            </a>
+            <div class="text-center mt-3">
+              <small class="text-muted">
+                <i class="fas fa-lock mr-1"></i> Secure checkout
+              </small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    {% endif %}
     
   </div>
 </div>

@@ -1,3 +1,4 @@
+from locale import currency
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 #from Cart.models import CartItem, Cart
@@ -9,10 +10,17 @@ from decimal import Decimal
 from Shop.models import Product, Profile
 from Cart.cart import Cart
 import datetime
+#paypal
+from django.urls import reverse
+from paypal.standard.forms import PayPalPaymentsForm
+from django.conf import settings
+import uuid #unique id for duplicate orders 
 
 # Create your views here.
 def payment_success(request):
     return render(request, 'payment/payment_success.html', {})
+def payment_failed(request):
+    return render(request, 'payment/payment_failed.html', {})
 
 
 def checkout(request):
@@ -52,11 +60,27 @@ def billing_info(request):
         # Create a session with shipping info
         my_shipping = request.POST
         request.session['my_shipping'] = my_shipping
-
+        # Get host
+        host = request.get_host()
+        # paypal form
+        paypal_dict={
+            'business': settings.PAYPAL_RECEIVER_EMAIL,
+            'amount': totals,
+            'item_name': 'Parts Order',
+            'no_shipping': '2',
+            'invoice': str(uuid.uuid4()),
+            'currency_code': 'ZAR',
+            'notify_url': 'https://{}{}'.format(host, reverse("paypal-ipn")),
+            'return_url': 'https://{}{}'.format(host, reverse("payment_success")),
+            'cancel_url': 'https://{}{}'.format(host, reverse("payment_failed")),
+        }
+        #paypal button
+        paypal_form = PayPalPaymentsForm(initial=paypal_dict)
         if request.user.is_authenticated:
             # get billing form
             billing_form = PaymentForm()
             return render(request, 'payments/billing_info.html', {
+                'paypal_form': paypal_form,
                 'cart_products': cart_products,
                 'quantities': quantities,
                 'totals': totals,
@@ -64,6 +88,7 @@ def billing_info(request):
         elif not request.user.is_authenticated:
             billing_form = PaymentForm()
             return render(request, 'payments/billing_info.html', {
+                'paypal_form': paypal_form,
                 'cart_products': cart_products,
                 'quantities': quantities,
                 'totals': totals,

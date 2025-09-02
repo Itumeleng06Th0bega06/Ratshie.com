@@ -11,13 +11,15 @@ load_dotenv()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bndd++qif&_kvx(b6=+y0$d+**j&hofu)m@7o6!z6^$+_w!_f2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app', 'https://ratshiecom-production.up.railway.app']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app', 'https://ratshiecom-production.up.railway.app','localhost:8000']
 CSRF_TRUSTED_ORIGINS = ['https://ratshie.com', 'https://ratshiecom-production.up.railway.app']
 
 
@@ -33,11 +35,13 @@ INSTALLED_APPS = [
     'Shop',
     'Cart',
     'Payment',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,3 +141,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#paypal
+PAYPAL_TEST = True
+PAYPAL_RECEIVER_EMAIL = 'business@ratshie.com'
