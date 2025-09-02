@@ -11,17 +11,16 @@ load_dotenv()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-bndd++qif&_kvx(b6=+y0$d+**j&hofu)m@7o6!z6^$+_w!_f2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app', 'https://ratshiecom-production.up.railway.app','localhost:8000']
-CSRF_TRUSTED_ORIGINS = ['https://ratshie.com', 'https://ratshiecom-production.up.railway.app']
+ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000']
+CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app']
 
 
 # Application definition
