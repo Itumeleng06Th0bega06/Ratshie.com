@@ -16,7 +16,8 @@ load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+
 
 #ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app', 'https://ratshiecom-production.up.railway.app','localhost:8000']
