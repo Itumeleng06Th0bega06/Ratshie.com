@@ -1,26 +1,32 @@
 from pathlib import Path
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # load varialbles
-#load_dotenv()
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+# LIVE PASSWORD
+DB_PASSWORD_IT = os.environ['DB_PASSWORD_IT']
+
+# LOCAL PASSWORD
+#DB_PASSWORD_IT = os.environ.get('DB_PASSWORD_IT')
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bndd++qif&_kvx(b6=+y0$d+**j&hofu)m@7o6!z6^$+_w!_f2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000']
-CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app']
+ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000','941013bcb68f.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app','https://941013bcb68f.ngrok-free.app']
 
 
 # Application definition
@@ -84,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': os.environ['DB_PASSWORD_IT'],
+        'PASSWORD': DB_PASSWORD_IT,
         'HOST': 'turntable.proxy.rlwy.net',
         'PORT': '45465',
         
@@ -143,5 +149,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #paypal
+#set sanbox
 PAYPAL_TEST = True
 PAYPAL_RECEIVER_EMAIL = 'business@ratshie.com'

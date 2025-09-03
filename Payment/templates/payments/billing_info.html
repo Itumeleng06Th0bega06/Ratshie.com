@@ -37,8 +37,12 @@
                           
         <a href = "{% url 'checkout' %}" class = "btn btn-block mt-1 py-1 btn-primary">Update Shipping</a>
         
-        {{ paypal_form.render }}
       </div>
+
+      </br></br>
+      {{ paypal_form.render }}
+      </br></br>
+      
       <div class="col-md-6 checkout-form">
         <strong>Billing Information</strong>
         
