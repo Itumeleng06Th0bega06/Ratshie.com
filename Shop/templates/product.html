@@ -83,10 +83,11 @@
                       
                       <form action="{% url 'cart_add' %}" method="post">
                         {% csrf_token %}
-                        <a class="btn btn-outline-dark mt-auto" href="{% url 'home' %}" >home</a>
-                        <button type="submit" value="{{ product.id}}" class="btn btn-outline-success" id="add-cart">
+                        <a class="btn btn-sm btn-outline-info px-3" href="{% url 'home' %}" >home</a>
+                        <button type="submit" value="{{ product.id}}" class="btn btn-sm btn-outline-success" id="add-cart">
                           <i class="fas fa-shopping-cart">&nbsp;&nbsp;</i><strong>Add</strong>
                         </button>
+                        <a class="btn btn-sm btn-outline-info px-3" href="{% url 'cart' %}" >Go to cart</a>
                       </br><small class="text-body-secondary">Please Create An Account To Start Shopping!!</small></p>
                     
                       </form>

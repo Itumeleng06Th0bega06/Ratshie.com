@@ -4,8 +4,25 @@
 
 {% block content %}
         <!-- Header-->
+            <div id="banner-area" class="banner-area" style="background-image:url({% static 'theme/images/banner/m1.jpg' %})">
+                <div class="banner-text">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <div class="banner-heading">
+                                </br></br></br></br>
+                                <h2 class="banner-title">Ratshie</h2>
 
-          <!-- Section-->
+                                <strong>REPAIR IT RIGHT DRIVE IT PROUD</strong>
+                            </br>
+                            </div>
+                        </div><!-- Col end -->
+                        </div><!-- Row end -->
+                    </div><!-- Container end -->
+                </div><!-- Banner text end -->
+                </div><!-- Banner area end --> 
+
+        <!-- Section-->
 {% if products %}
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
@@ -37,7 +54,7 @@
                                     
                                     <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
+                                    <div class="text-center"><a class="btn btn-sm btn-outline-secondary px-3 mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +76,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
+                                    <div class="text-center"><a class="btn btn-sm btn-outline-secondary px-3 mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
                                 </div>
                             </div>
                         </div>
@@ -70,20 +87,24 @@
         </section>
 {%else%}
 <div id="banner-area" class="banner-area" style="background-image:url({% static 'theme/images/banner/m1.jpg' %})">
-    <div class="banner-text">
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12">
-                <div class="banner-heading">
-                    <h1 class="banner-title">Products Loading</h1>
-                    <h4>Create An Account To Get Incredible Deals</h4></br>
-                    <strong></strong>
-                </div>
-            </div><!-- Col end -->
-            </div><!-- Row end -->
-        </div><!-- Container end -->
-    </div><!-- Banner text end -->
-    </div><!-- Banner area end --> 
+        <div class="banner-text">
+            <div class="container">
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-heading">
+                        </br></br></br></br>
+                        <h2 class="banner-title">Welcome</h2>
+                        
+                        
+                        <strong>SORRY NO PRODUCTS YET</strong></br>
+                        <strong>Please Come Back Later</strong>
+                    </br>
+                    </div>
+                </div><!-- Col end -->
+                </div><!-- Row end -->
+            </div><!-- Container end -->
+        </div><!-- Banner text end -->
+        </div><!-- Banner area end --> 
 {%endif%}    
             
         

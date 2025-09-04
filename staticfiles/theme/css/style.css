@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #212121;
+  color: rgb(0, 0, 0);
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
   text-rendering: optimizeLegibility;
@@ -876,7 +876,7 @@ ul.top-info-box > li.nav-search i {
   padding: 6px;
   border-radius: 0;
   font-size: 1rem;
-  background: #009fa7;
+  background: #6b00ae;
 }
 .navbar-toggler:focus {
   outline: 0;
@@ -956,7 +956,7 @@ ul.navbar-nav > li > a:after {
 
 ul.navbar-nav > li > a {
   font-family: "Montserrat", sans-serif;
-  color: #fff !important;
+  color: #ffffff !important;
   text-rendering: optimizeLegibility;
   font-weight: 700 !important;
   text-transform: uppercase;
@@ -2366,7 +2366,7 @@ img.testimonial-thumb {
 ================================================== */
 /*- Footer common */
 .footer {
-  background-color: #916300;
+  background-color: #ffffff;
   color: #ffffff;
 }
 
@@ -2530,16 +2530,18 @@ img.testimonial-thumb {
 .banner-area {
   position: relative;
   min-height: 300px;
-  color: #fff;
+  color: #ff9b00;
   background-position: 50% 50%;
   background-size: cover;
+  backdrop-filter: blur(5px);
 }
 
 .banner-title {
-  color: #fff;
+  color: #ffffff;
   text-transform: uppercase;
-  font-size: 58px;
+  font-size: 60px;
   font-weight: 900;
+  
 }
 @media (max-width: 767px) {
   .banner-title {
