@@ -12,10 +12,10 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # LIVE PASSWORD
-#DB_PASSWORD_IT = os.environ['DB_PASSWORD_IT']
+DB_PASSWORD_IT = os.environ['DB_PASSWORD_IT']
 
 # LOCAL PASSWORD
-DB_PASSWORD_IT = os.environ.get('DB_PASSWORD_IT')
+#DB_PASSWORD_IT = os.environ.get('DB_PASSWORD_IT')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -25,7 +25,7 @@ DEBUG = True
 
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://ratshie.com', 'ratshie.com', 'ratshiecom-production.up.railway.app', 'https://ratshiecom-production.up.railway.app', 'localhost:8000', '941013bcb68f.ngrok-free.app']
+ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000','941013bcb68f.ngrok-free.app']
 CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app','https://941013bcb68f.ngrok-free.app']
 
 
