@@ -28,8 +28,8 @@ DEBUG = True
 
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000','568f884f7b5f.ngrok-free.app ']
-CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app','https://568f884f7b5f.ngrok-free.app ']
+ALLOWED_HOSTS = ['https://ratshie.com','ratshie.com','ratshiecom-production.up.railway.app','https://ratshiecom-production.up.railway.app','localhost:8000','568f884f7b5f.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://ratshie.com','https://ratshiecom-production.up.railway.app','https://568f884f7b5f.ngrok-free.app']
 
 
 # Application definition
