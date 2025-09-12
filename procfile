@@ -1,4 +1,2 @@
-# Changed Shop to Base
-
-release: python manage.py migrate
+release: python manage.py migrate --noinput
 web: waitress-serve --port=$PORT Base.wsgi:application

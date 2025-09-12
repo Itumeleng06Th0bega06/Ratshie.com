@@ -1,12 +1,8 @@
-from locale import currency
+
 from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
-#from Cart.models import CartItem, Cart
 from django.contrib import messages
 from Payment.forms import ShippingForm, PaymentForm
 from .models import ShippingAddress, Order,OrderItem
-from django.contrib.auth.models import User
-from decimal import Decimal
 from Shop.models import Product, Profile
 from Cart.cart import Cart
 import datetime
@@ -15,6 +11,7 @@ from django.urls import reverse
 from paypal.standard.forms import PayPalPaymentsForm
 from django.conf import settings
 import uuid #unique id for duplicate orders 
+
 
 # Create your views here.
 def payment_success(request):
@@ -49,13 +46,13 @@ def checkout(request):
 	
         
 
-def billing_info(request):
+def billing_info(request,product_id):
     if request.POST:
         cart = Cart(request)
         cart_products = cart.get_prods
         quantities = cart.get_quants
         totals = cart.cart_total()
-        
+        product = Product.objects.get(id=product_id)
 
         # Create a session with shipping info
         my_shipping = request.POST
@@ -70,9 +67,12 @@ def billing_info(request):
             'no_shipping': '2',
             'invoice': str(uuid.uuid4()),
             'currency_code': 'ZAR',
-            'notify_url': 'https://{}{}'.format(host, reverse("paypal-ipn")),
-            'return_url': 'https://{}{}'.format(host, reverse("payment_success")),
-            'cancel_url': 'https://{}{}'.format(host, reverse("payment_failed")),
+            #'notify_url': 'https://{}{}'.format(host, reverse("paypal-ipn")),
+            'notify_url': f"https://{host}{reverse('paypal-ipn')}",
+            #'return_url': 'https://{}{}'.format(host, reverse("payment_success")),
+            'return_url': f"https://{host}{reverse('payment_success', kwargs={'product_id':product.id})}", # type: ignore
+            #'cancel_url': 'https://{}{}'.format(host, reverse("payment_failed")),
+            'cancel_url': f"https://{host}{reverse('payment_failed', kwargs={'product_id':product.id})}", # type: ignore
         }
         #paypal button
         paypal_form = PayPalPaymentsForm(initial=paypal_dict)
